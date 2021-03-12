@@ -1,0 +1,18 @@
+*inlinemarkdownfootnotes.txt* Plugin to create inline footnotes
+
+
+INTRODUCTION																*inlinemarkdownfootnotes-intro*
+
+The command <Plug>AddInlineFootnote will insert an inline footnote at the end
+of the sentence under the cursor. It will then jump to the end of the paragraph
+and insert the footnote. This plugin automatically chooses the lowest available
+footnote number.
+
+
+COMMANDS																*inlinemarkdownfootnotes-commands*
+
+`AddInlineFootnote`
+: Insert a footnote at the end of sentence after the cursor.
+
+`NextInlineFootnote`
+:	Return the number of the next footnote to be inserted.
