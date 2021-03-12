@@ -12,12 +12,11 @@ endif
 
 let b:loaded_inlinemarkdownfootnotes = 1
 
-let s:cpo_save = &cpo
-set cpo&vim
+if !hasmapto('<Plug>AddInlineFootnote', 'n') && mapcheck('<Leader>f', 'n') is# ''
+	nmap <buffer> <Leader>f <Plug>AddInlineFootnote
+endif
 
 nnoremap <buffer> <Plug>AddInlineFootnote :<c-u>call inlinemarkdownfootnotes#InsertNote()<CR>
 inoremap <buffer> <Plug>AddInlineFootnote <C-O>:<c-u>call inlinemarkdownfootnotes#InsertNote()<CR>
 
 command! -buffer -nargs=0 NextInlineFootnote call inlinemarkdownfootnotes#GetNextNote()
-
-let &cpo = s:cpo_save

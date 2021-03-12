@@ -56,6 +56,11 @@ endfunction
 
 function! inlinemarkdownfootnotes#InsertNote()
   let l:inlinefootnotenumber = inlinemarkdownfootnotes#GetNextNote()
-	execute "normal! )hi[^".l:inlinefootnotenumber."]\<esc>"
+	" We place the footnote after the nearest punctuation.
+	let l:pos = search('[,:.?!]', 'Wce')
+
+	execute "normal! a[^".l:inlinefootnotenumber."]\<esc>"
 	execute "normal! }o[^".l:inlinefootnotenumber."]: "
+	execute "normal! o\<esc>k$"
+	startinsert!
 endfunction
