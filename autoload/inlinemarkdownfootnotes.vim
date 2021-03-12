@@ -31,6 +31,9 @@ function! inlinemarkdownfootnotes#GetNextNote()
 		call sort(l:currentnotelist)
 		if l:count == l:currentnotelist[-1]
 			let l:inlinefootnotenumber = l:count + 1
+		elseif l:currentnotelist[0] != 1
+			" Make sure we start as low as we can.
+			let l:inlinefootnotenumber = 1
 		else
 			let l:c = 0
 			while c < len(l:currentnotelist)
