@@ -28,7 +28,7 @@ function! inlinemarkdownfootnotes#GetNextNote()
 
 		" Check if we have the right number of footnotes, or if we don't, insert
 		" at the first possible location.
-		call sort(l:currentnotelist)
+		call sort(l:currentnotelist, 'n')
 		if l:count == l:currentnotelist[-1]
 			let l:inlinefootnotenumber = l:count + 1
 		elseif l:currentnotelist[0] != 1
